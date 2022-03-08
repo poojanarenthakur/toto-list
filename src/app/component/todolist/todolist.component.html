@@ -1,0 +1,60 @@
+<!-- Content Header (Page header) -->
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0">Starter Page</h1>
+            </div>
+            <!-- /.col -->
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item active">Starter Page</li>
+                </ol>
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+</div>
+<!-- /.content-header -->
+<!-- TO DO List -->
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">
+            <i class="ion ion-clipboard mr-1"></i> To Do List
+        </h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+        <ul class="todo-list" data-widget="todo-list">
+            <li *ngFor="let todoitem of this._state.todolist, let i = index">
+                <!-- drag handle -->
+                <!-- checkbox -->
+                <div class="icheck-primary d-inline ml-2">
+                    <input (change)="markdone($event, todoitem['id'])" type="checkbox" value="" name="todo1" id="todoCheck1" [checked]="todoitem['is_done'] == 1">
+                    <label for="todoCheck1"></label>
+                </div>
+                <!-- todo text -->
+                <span class="text">{{todoitem['task']}}</span>
+                <!-- Emphasis label -->
+                <!--z General tools such as edit or delete-->
+                <div class="tools">
+                    <i [routerLink]="['/home', 'edit',i]" class="fas fa-edit"></i>
+                    <i (click)="delete(i)" class="fas fa-trash"></i>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <!-- /.card-body -->
+    <div class="card-footer clearfix">
+        <button type="button" class="btn btn-primary float-right" [routerLink]="['/home','add']"><i class="fas fa-plus"></i> Add item</button>
+    </div>
+</div>
+
+<!-- Main content -->
+<!-- /.container-fluid -->
+<!-- /.content -->
+
+<!-- /.content-wrapper -->

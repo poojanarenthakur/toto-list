@@ -1,0 +1,8 @@
+<form [formGroup]=" newTask " (submit)="add() ">
+    <legend>New Task</legend>
+    <div class="form-group ">
+        <label for=" ">Taks Details</label>
+        <input type="text " class="form-control " id=" " placeholder="Enter task Discription " formControlName="task">
+    </div>
+    <button type="submit " class="btn btn-primary ">Add</button>
+</form>
